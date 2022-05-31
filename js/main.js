@@ -83,6 +83,7 @@ for(let i = 1; i <=5  ;i++){
     array2.push(askUtente);
     console.log(array2)
 }
+// devo andare a controllare che i numeri scritti dall'utente siano corretti o no
 })
 
 
