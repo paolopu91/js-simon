@@ -29,6 +29,9 @@ const playTimer = document.getElementById("playTimer");
 document.getElementById("playTimer").style.visibility= "visible"
 
 // creo i miei array:
+//creo il mio array di numeri
+const numeriGame = [3,4,5,1,19];
+console.log(numeriGame)
 //Il primo array conterrà i numeri che l'utente inserisce tramite il prompt 
 const array2= [];
 //Il secondo array conterrà i numeri giusti che l'utente ha inserito
