@@ -20,10 +20,19 @@ il software dice quanti e quali dei numeri da indovinare
 const timer30SecondiContainer = document.getElementById("timer30Secondi");
 
 document.getElementById("containerNone").style.visibility = "hidden"
+//prendo il mio button html per far comparire il prompt
+const clickReady = document.getElementById("imReady")
+document.getElementById("imReady").style.visibility = "hidden"
 
 //prendo anche il mio button per far avvenire l'evento al click
 const playTimer = document.getElementById("playTimer");
+document.getElementById("playTimer").style.visibility= "visible"
 
+// creo i miei array:
+//Il primo array conterrà i numeri che l'utente inserisce tramite il prompt 
+const array2= [];
+//Il secondo array conterrà i numeri giusti che l'utente ha inserito
+const array3 = [];
 // avvio del timer di 30 secondi
 playTimer.addEventListener("click",function(){
     document.getElementById("containerNone").style.visibility = "visible";
@@ -54,7 +63,23 @@ playTimer.addEventListener("click",function(){
         if(secondiTotali === 0){
             clearInterval(timer);
             document.getElementById("containerNone").style.visibility = "hidden"
+            document.getElementById("playTimer").style.visibility = "hidden"
+            document.getElementById("imReady").style.visibility = "visible"
         }
+
     },1000)
     
 })
+
+
+
+clickReady.addEventListener("click", function(){
+// creo un ciclo in cui chiederò all'utente di inserire i numeri visti prima
+for(let i = 1; i <=5  ;i++){
+    const askUtente = parseInt(prompt("Scrivi qui i numeri appena visti"))
+    array2.push(askUtente);
+    console.log(array2)
+}
+})
+
+
