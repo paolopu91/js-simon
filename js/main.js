@@ -34,7 +34,7 @@ playTimer.addEventListener("click",function(){
     let secondiTotali = 1 * 30;
     
     // avvio un timer di 30 secondi
-    setInterval(function () {
+    let timer = setInterval(function () {
         secondiTotali--;
         
         const ore = Math.floor(secondiTotali/ 3600);
@@ -49,6 +49,12 @@ playTimer.addEventListener("click",function(){
         secondi.toString().padStart(2, "0");
 
         console.log(secondiTotali);
+
+        // creo la condizione per far fermare il timer a 0 e non farlo continuare a scendere
+        if(secondiTotali === 0){
+            clearInterval(timer);
+            document.getElementById("containerNone").style.visibility = "hidden"
+        }
     },1000)
-    clearInterval(playTimer);
+    
 })
