@@ -28,14 +28,17 @@ document.getElementById("imReady").style.visibility = "hidden"
 const playTimer = document.getElementById("playTimer");
 document.getElementById("playTimer").style.visibility= "visible"
 
+// prendo il risultato finale del mio gioco da mostrare all'utente
+const result = document.getElementById("result")
+
 // creo i miei array:
 //creo il mio array di numeri
 const numeriGame = [3,4,5,1,19];
 console.log(numeriGame)
 //Il primo array conterrà i numeri che l'utente inserisce tramite il prompt 
-const array2= [];
+const numeriInseritiUtente= [];
 //Il secondo array conterrà i numeri giusti che l'utente ha inserito
-const array3 = [];
+const numeriGiusti = [];
 // avvio del timer di 30 secondi
 playTimer.addEventListener("click",function(){
     document.getElementById("containerNone").style.visibility = "visible";
@@ -80,10 +83,18 @@ clickReady.addEventListener("click", function(){
 // creo un ciclo in cui chiederò all'utente di inserire i numeri visti prima
 for(let i = 1; i <=5  ;i++){
     const askUtente = parseInt(prompt("Scrivi qui i numeri appena visti"))
-    array2.push(askUtente);
-    console.log(array2)
+    numeriInseritiUtente.push(askUtente);
+    console.log(numeriInseritiUtente)
 }
-// devo andare a controllare che i numeri scritti dall'utente siano corretti o no
+
+for(let i = 0; i < numeriInseritiUtente.length; i++) {
+
+    // creo le mie condizioni per verificare quanti numeri ha ricordato l'utente
+    if(numeriInseritiUtente[i].toString() === numeriGame[i].toString()){
+        numeriGiusti.push(numeriInseritiUtente[i]);
+        result.innerHTML= `Hai ricordato ${numeriGiusti.length} numeri, ovvero ${numeriGiusti.join(",")} `
+    }else{
+        result.innerHTML = `Non hai ricordato nemmeno un numero,riprova!`
+    }
+}
 })
-
-
